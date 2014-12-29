@@ -4,7 +4,7 @@
 
 #menu-primary .search-form .search-toggle {
 	@include md {
-		background-color: #00BCD4;
+		background-color: $color-primary;
 		position: relative;
 		margin-top: -5px;
 		margin-right: -6px;

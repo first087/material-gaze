@@ -50,7 +50,7 @@ font-size: 22px;
 	border-bottom: 1px solid;
 
 &:focus {
-		background: none;
+	background: none;
 	border: 0;
 	border-bottom: 2px solid $color-primary;
 }
@@ -61,4 +61,34 @@ font-size: 22px;
 padding: 8px 15px;
 background-color: #f5f5f5;
 border-radius: 2px;
+}
+
+
+.gallery .gallery-icon a img {
+border: 0;
+padding: 0;
+border-radius: 2px;
+}
+
+.format-aside {
+background-color: $color-secondary;
+color: #fff;
+font-weight: 400;
+a {
+	color: #fff;
+}
+}
+
+.format-quote {
+background-color: rgba(255, 255, 255, 0.5);
+box-shadow: none;
+}
+
+article.sticky {
+background-color: $color-primary;
+color: #fff;
+font-weight: 400;
+a, .entry-byline, .entry-footer, .comment-meta, .wp-playlist-item-meta {
+	color: #fff;
+}
 }

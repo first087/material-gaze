@@ -41,7 +41,7 @@ border-bottom: 0;
 }
 
 .loop-meta {
-background-color: #2759E5;
+background-color: $color-primary;
 }
 
 h1.loop-title {
@@ -60,9 +60,7 @@ padding-top: 0;
 	padding-top: 1.5rem;
 }
 
-.plural .content .entry-title, .entry-title {
-margin-top: -1.5rem;
-}
+
 
 @include lg {
 
