@@ -44,3 +44,9 @@ border-bottom: 2px solid $color-primary;
 color: $grey-flat-700;
 }
 
+
+#menu-social li a::before {
+content: '\f408';
+padding: 0 3px;
+font-size: 1.4rem;
+}
