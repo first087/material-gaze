@@ -7,9 +7,17 @@
     ##Stargazer
 \*------------------------------------*/
 
+.widget {
+	padding: 0;
 
+	&>* {
+		padding: 0 1.5rem 1.5rem;
+	}
+}
 
-
+.widget ul {
+margin-bottom: 0;
+}
 
 .widget-title {
 	padding: 0;

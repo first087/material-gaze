@@ -56,14 +56,6 @@ border: none;
 padding-top: 0;
 }
 
-.widget {
-	padding: 0;
-
-	&>* {
-		padding: 0 1.5rem;
-	}
-}
-
 .entry, .entry:last-of-type {
 	padding-top: 1.5rem;
 }
