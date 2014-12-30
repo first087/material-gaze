@@ -61,7 +61,7 @@ h4,
 h5,
 h6 {
 	font-family:  'RobotoDraft', 'Helvetica', 'Arial', sans-serif;
-	font-weight: 300;
+	font-weight: 400;
 }
 
 /* Thin font weights. */
@@ -72,9 +72,10 @@ h6 {
 }
 
 #menu-primary li a, #menu-secondary li a { 
-  font-weight: 400;
+  font-weight: 500;
   letter-spacing: 0.04em;
   @include font-size(14px, false);
+  text-transform: capitalize;
 }
 
 #menu-primary li li a, #menu-secondary li li a { 
@@ -105,4 +106,19 @@ b,
 strong,
 .comment-author { 
 	font-weight: 700; 
+}
+
+
+.entry-byline, .entry-footer, .comment-meta, .wp-playlist-item-meta {
+color: $grey-500;
+font-style: italic;
+a {
+color: $grey-900;
+opacity: .5;
+&:hover, &:focus, &:active {
+	color: $grey-900;
+	text-decoration: none;
+	opacity: 1;
+}
+}
 }

@@ -2,26 +2,20 @@
     #SHARED
 \*------------------------------------*/
 
+html {
+font-size: 15px;
+}
+
+@include md {
+html {
+font-size: 16px;
+}
+}
 
 /*------------------------------------*\
     ##Stargazer
 \*------------------------------------*/
 
-.widget {
-	padding: 0;
-
-	&>* {
-		padding: 0 1.5rem 1.5rem;
-	}
-}
-
-.widget ul {
-margin-bottom: 0;
-}
-
-.widget-title {
-	padding: 0;
-}
 
 .widget-title>.wrap, #comments-number>.wrap, #reply-title>.wrap, .attachment-meta-title>.wrap {
 @include font-size (24px);
@@ -31,13 +25,20 @@ box-sizing: border-box;
 border-radius: 2px 2px 0 0;
 }
 
+.widget-title {
+	margin-bottom: 0;
+}
+
+
 .widget-title>.wrap::before {
 font-size: 24px;
 }
 
-.widget_search>.search-form {
+
+.widget_search > form.search-form {
 margin: 0;
 border-radius: 2px;
+background-color: #fff;
 }
 
 #menu-primary .search-form .search-toggle::before {
@@ -58,8 +59,8 @@ font-size: 22px;
 
 
 .breadcrumbs {
-padding: 8px 15px;
-background-color: #f5f5f5;
+//padding: 8px 15px;
+background-color: $color-grey-ui;
 border-radius: 2px;
 }
 
@@ -84,11 +85,27 @@ background-color: rgba(255, 255, 255, 0.5);
 box-shadow: none;
 }
 
-article.sticky {
+#footer, article.sticky {
 background-color: $color-primary;
 color: #fff;
 font-weight: 400;
-a, .entry-byline, .entry-footer, .comment-meta, .wp-playlist-item-meta {
+a{
 	color: #fff;
 }
+.entry-byline, .entry-footer, .comment-meta, .wp-playlist-item-meta {
+	color: $grey-400;
+
+	a {
+		color: $grey-50;
+	}
+}
+}
+
+.widget-title, #comments-number, #reply-title, .attachment-meta-title {
+	border-bottom: 0;
+}
+
+
+h1, h2, hr, code, pre, .form-allowed-tags code, fieldset, legend, input, select, textarea, .gallery .gallery-icon a img, .avatar, .display-header-text #header, .entry, .format-chat .chat-author, .media-info li, .wp-playlist-tracks, .wp-playlist-item, .loop-description, .loop-pagination, .loop-nav, #sidebar-subsidiary, li.ping, .comment-content, .clean-my-archives .day-duplicate .day, .whistles-tabs-nav li a, .whistles-tabs .whistles-tabs-nav li a:hover, .whistles-tabs .whistles-tabs-nav li a:focus, .whistles-tabs .whistles-tabs-wrap, .whistles-toggle .whistle-title, .whistles-accordion .whistle-title, .whistles-toggle .whistle-content, .whistles-accordion .whistle-content {
+	border-color: $color-grey-ui;
 }

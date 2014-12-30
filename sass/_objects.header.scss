@@ -2,6 +2,17 @@
     #HEADER
 \*------------------------------------*/
 
+#site-title {
+font-weight: 400;
+}
+
+.en #site-description {
+@include font-size(20px, false);
+font-weight: 500;
+letter-spacing: 0.02em;
+font-style: normal;
+}
+
 #menu-primary .search-form .search-toggle {
 	@include md {
 		background-color: $color-primary;
@@ -16,8 +27,12 @@
 		        color: #fff;
 		        }
 
-		&:hover, &:active, &:focus {
+		&:hover {
 			@include shadow-z3();
+			}
+
+		&:active, &:focus {
+			@include shadow-z2();
 			}
 	}
 }
@@ -31,10 +46,18 @@ box-shadow: none;
 	@include shadow-z1();
 }
 
+@include sm-only {
 #menu-primary li a {
-color: rgba( 255, 255, 255, 0.75 );
-background: $grey-100;
+color: $grey-800;
+background: $grey-50;
 border-color: transparent;
+}
+
+#menu-primary li a:hover, #menu-secondary li a:hover, #menu-primary li a:focus, #menu-secondary li a:focus {
+color: $grey-900;
+background: $color-grey-ui;
+}
+
 }
 
 #menu-secondary li a, #menu-secondary .menu-toggle button {
@@ -53,11 +76,11 @@ border-radius: 2px;
 }
 
 #menu-primary, #menu-primary .search-form>div, #footer, .audio-shortcode-wrap, .media-shortcode-extend .media-info, .media-info-toggle, .entry-content .media-info-toggle, .media-info-toggle:hover, .media-info-toggle:focus, .wp-audio-shortcode.mejs-container, .mejs-controls, .mejs-volume-button .mejs-volume-slider, .mejs-overlay-play .mejs-overlay-button::after, .mejs-time-rail .mejs-time-float, .wp-playlist-dark {
-background: $grey-100;
+background: $color-secondary;
 }
 
 
-#menu-primary li a, #menu-secondary li li a, #menu-primary .menu-toggle button:hover, #menu-primary .menu-toggle button:focus {
+#menu-primary li li a, #menu-secondary li li a {
 	color: $grey-flat-400;
 
 	&:hover, &:focus, &:active {
@@ -86,7 +109,7 @@ border: 0;
 
 
 #menu-primary ul ul li a:hover, #menu-secondary ul ul li a:hover, #menu-primary ul ul li a:focus, #menu-secondary ul ul li a:focus {
-background: $grey-200;
+background: $grey-100;
 }
 
 
@@ -95,13 +118,13 @@ top: 47px;
 }
 
 .header-image {
-margin-bottom: 1.5rem;
+//margin-bottom: 1.5rem;
 position: absolute;
 top: 0;
 }
 
 .home .header-image {
-margin-bottom: 0;
+//margin-bottom: 0;
 }
 
 #header{
@@ -127,4 +150,10 @@ color: #fff;
 #menu-primary {
 position: relative;
 z-index: 2;
+}
+
+@include md {
+.ltr #menu-primary ul ul ul, .ltr #menu-secondary ul ul ul {
+left: 232px;
+}
 }
