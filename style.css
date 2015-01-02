@@ -11,568 +11,384 @@ Text Domain: 	Material Gaze
 Tags:
 Template:		stargazer
 */
+/********************************************************************************************************
+ * 2 - Fun Zone
+ *
+ * This section of the stylesheet is what I call the fun area.  For the most part, you should feel free 
+ * to overwrite the following in your child theme's `style.css` file if your design calls for it.  
+ * Specifically, this deals with fonts and colors.  Those things are really the things that give your 
+ * child theme its uniqueness.  Have fun with it.  Go wild!
+ ********************************************************************************************************/
 /**
- * SETTINGS             GLOBAL CONFIG AND SETTINGS
- * ========             ==========================
- * Global...............Site-wide settings and config.
- * Colors...............Color schemes and settings.
+ * 2.1 - Font Family Definitions
  *
+ * This theme operates with three dinstinct font rules.  The "primary" font is used for the majority of 
+ * text throughout the theme.  The "secondary" font is used for handling secondary use cases.  The 
+ * "headlines" font is specific to h1-h6 headers (with the exception of #site-description).
  *
- * TOOLS                GLOBAL PREPROCESSOR TOOLING
- * =====                ===========================
- * Functions............Globally-available helper functions.
- * Mixins...............Globally-available mixins.
- *
- *
- * GENERIC              SITE-WIDE STARTING-POINT STYLES
- * =======              ===============================
- * Box-sizing...........Apply global `border-box`.
- * Normalize.css........Use @necolas’ Normalize.css for consistency.
- * Reset................Remove default margins.
- * Shared...............High-level shared traits (mainly for vertical rhythm).
- *
- *
- * BASE                 TYPE (I.E. BARE ELEMENT) SELECTORS
- * ====                 ==================================
- * Page.................Page-level (e.g. `html`, `body`) styles.
- * Headings.............Headings 1–6.
- * Links................Default hyperlink styles.
- *
- *
- * OBJECTS              DESIGN-FREE DESIGN PATTERNS
- * =======              ===========================
- * Buttons..............Unstyled button objects.
- *
- *
- * COMPONENTS           DESIGNED, COMPLETE COMPONENTS
- * ==========           =============================
- * Buttons..............Fully styled buttons and their variants.
- *
- *
- * TRUMPS               HELPERS AND OVERRIDES
- * ======               =====================
- * Widths...............Width helper classes.
+ * If building a child theme for public release with custom fonts, the child theme should define only the 
+ * font rules it needs.  Copy the specific section below that you want to overwrite into the child theme. 
+ * Make sure to include the `.font-*` class as this will maintain forward compatibility with future 
+ * changes in the parent theme.
  */
-/*------------------------------------*\
-    #LINKS
-\*------------------------------------*/
-button a, .menu-items a, h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
-	text-decoration: none; }
-button a:hover, button a:focus, button a:active, .menu-items a:hover, .menu-items a:focus, .menu-items a:active, h1 a:hover, h1 a:focus, h1 a:active, h2 a:hover, h2 a:focus, h2 a:active, h3 a:hover, h3 a:focus, h3 a:active, h4 a:hover, h4 a:focus, h4 a:active, h5 a:hover, h5 a:focus, h5 a:active, h6 a:hover, h6 a:focus, h6 a:active {
-	text-decoration: none; }
-
-label:focus, label.focus {
-	text-decoration: none; }
-
-.comment-reply-link, .comment-reply-login, input[type="button"], input[type="reset"], input[type="submit"] {
-	text-decoration: none; }
-.comment-reply-link:hover, .comment-reply-link:focus, .comment-reply-link:active, .comment-reply-login:hover, .comment-reply-login:focus, .comment-reply-login:active, input[type="button"]:hover, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:hover, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:hover, input[type="submit"]:focus, input[type="submit"]:active {
-	text-decoration: none; }
-
-#site-title a:hover, #site-title a:focus {
-	border-bottom: none; }
-
-#menu-primary-items > li > a {
-	border-bottom: 2px solid transparent; }
-#menu-primary-items > li > a:hover, #menu-primary-items > li > a:focus, #menu-primary-items > li > a:active {
-	border-bottom: 2px solid #3f51b5; }
-
-.sub-menu:hover ~ #menu-primary-items > li > a, #menu-primary li.current-menu-item > a {
-	border-bottom: 2px solid #3f51b5;
-	color: #455a64; }
-
-#menu-social li a::before {
-	padding: 0 3px;
-	font-size: 1.4rem; 
-	content: "\f408";}
-
-/*------------------------------------*\
-    #LAYOUTS
-\*------------------------------------*/
-#container > .wrap {
-	position: relative; 
-	background: none;}
-
-.display-header-text #header {
-	border-bottom: 0; }
-
-.loop-meta, .widget, .entry, .entry:last-of-type {
-	box-sizing: border-box;
-	border: 0; 
-	border-radius: 2px;
-	background-color: #fff;
-	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);}
-
-.loop-meta {
-	background-color: #3f51b5; }
-
-h1.loop-title {
-	border-color: rgba(255, 255, 255, 0.3); 
-	color: #fff;}
-
-.loop-description {
-	border: none; 
-	color: #fff;
-	background: none;}
-
-#menu-secondary, #branding {
-	margin-top: 0; }
-
-#sidebar-subsidiary {
-	padding-top: 0;
-	border-top: 0; }
-
-.custom-background #container > .wrap {
-	margin-top: 16px;
-	margin-bottom: 0; }
-
-.main {
-	padding-top: 16px; }
-
-.custom-background #header, .custom-background #main, .custom-background #sidebar-subsidiary {
-	padding-right: 16px; 
-	padding-left: 16px;}
-
-.loop-meta, .entry, .entry:last-of-type {
-	margin-bottom: 16px; 
-	padding: 30px 40px 15px;}
-
-.breadcrumbs {
-	display: -webkit-box;
-	display: -webkit-flex;
-	display: -ms-flexbox;
-	display:         flex;
-	height: 40px;
-	padding: 0 16px; 
-
-	-webkit-box-align: center;
-	-webkit-align-items: center;
-	-ms-flex-align: center;
-	        align-items: center;}
-
-.breadcrumbs, .widget {
-	margin-bottom: 16px; }
-
-.widget > * {
-	padding: 30px 40px 15px; }
-
-.comment-respond, .loop-pagination, .loop-nav {
-	margin: 0 0 16px;
-	padding: 0;
-	border: 0; }
-
-.comment-form {
-	padding: 30px 40px 15px; }
-
-.comment-reply-title {
-	margin-bottom: 0; }
-
-@media only screen and (min-width: 800px) {
-	.custom-background #container > .wrap {
-		margin-top: 24px; }
-
-	.main {
-		padding-top: 24px; }
-
-	.custom-background #header, .custom-background #main, .custom-background #sidebar-subsidiary {
-		padding-right: 24px; 
-		padding-left: 24px;}
-
-	.loop-meta, .entry, .entry:last-of-type {
-		margin-bottom: 24px; 
-		padding: 30px 40px 15px;}
-
-	.breadcrumbs, .comment-respond, .loop-pagination, .loop-nav, .widget {
-		margin-bottom: 24px; }
-	}
-
-@media only screen and (min-width: 950px) {
-	.custom-background #container > .wrap {
-		margin-top: 40px; }
-
-	.main {
-		padding-top: 40px; }
-
-	.custom-background #header, .custom-background #main, .custom-background #sidebar-subsidiary {
-		padding-right: 40px; 
-		padding-left: 40px;}
-
-	.loop-meta, .entry, .entry:last-of-type {
-		margin-bottom: 40px; 
-		padding: 30px 40px 15px;}
-
-	.breadcrumbs, .comment-respond, .loop-pagination, .loop-nav, .widget {
-		margin-bottom: 40px; }
-
-	#sidebar-primary {
-		width: 31.6%;
-		max-width: 100%; }
-
-	.layout-2c-l #content, .layout-2c-r #content {
-		width: 64.5%; }
-	}
-
-.widget {
-	padding: 0; }
-
-.widget-title {
-	padding: 0; }
-
-.comment-respond {
-	box-sizing: border-box;
-	background-color: #fff; 
-	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);}
-
-#comments {
-	box-sizing: border-box;
-	background-color: #fff; 
-	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);}
-#comments .depth-1 > article > .comment-meta {
-	text-align: left; }
-#comments .depth-1 > article > .comment-meta > .avatar {
-	float: left;
-	margin-right: 1.5rem;
-	margin-left: 0; }
-
-li.comment, li.ping {
-	clear: both; }
-
-li.ping, .comment-content {
-	position: relative; 
-	border: 0;
-	border-radius: 2px;
-	background: #f5f5f5;}
-
-li.ping:before, .comment-content:before {
-	position: absolute;
-	top: -20px;
-	width: 0;
-	height: 0;
-	border-right: 13px solid transparent;
-	border-bottom: 26px solid #f5f5f5;
-	border-left: 13px solid transparent;
-	content: ""; }
-
-.comment.odd > article > .comment-content:before {
-	right: 15px; }
-
-.comment.odd > article > .comment-meta {
-	text-align: right; }
-
-.comment.odd > article > .comment-meta > .avatar {
-	float: right; }
-
-.comment-reply-link, .comment-reply-login {
-	border-radius: 0 0 2px 2px; }
-
-/*------------------------------------*\
-    #CODE
-\*------------------------------------*/
-/*------------------------------------*\
-    #HEADER
-\*------------------------------------*/
-#site-title {
-	font-weight: 400; }
-
-.en #site-description {
-	font-size: 20px;
-	font-size: 1.25rem;
-	font-weight: 500;
-	font-style: normal; 
-	letter-spacing: 0.02em;}
-
-@media only screen and (min-width: 800px) {
-	#menu-primary .search-form .search-toggle {
-		position: relative;
-		width: 45px;
-		height: 45px;
-		margin-top: -5px;
-		margin-right: -6px;
-		border-radius: 50%;
-		background-color: #3f51b5;
-		box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-	#menu-primary .search-form .search-toggle::before {
-		color: #fff; }
-	#menu-primary .search-form .search-toggle:hover {
-		box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-	#menu-primary .search-form .search-toggle:active, #menu-primary .search-form .search-toggle:focus {
-		box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); } }
-
-#menu-primary .menu-toggle button {
-	color: #455a64;
-	box-shadow: none; }
-
-#menu-primary {
-	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
-
-@media only screen and (max-width: 799px) {
-	#menu-primary li a {
-		border-color: transparent; 
-		color: #424242;
-		background: #fafafa;}
-
-	#menu-primary li a:hover, #menu-secondary li a:hover, #menu-primary li a:focus, #menu-secondary li a:focus {
-		color: #212121;
-		background: #eee; }
-	}
-
-#menu-secondary li a, #menu-secondary .menu-toggle button {
-	border-color: transparent; 
-	color: rgba(255, 255, 255, 0.75);
-	background: #3f51b5;}
-
-ul#menu-secondary-items {
-	border-radius: 2px; 
-	background-color: #3f51b5;}
-@media only screen and (min-width: 800px) {
-	ul#menu-secondary-items {
-		padding-right: 24px; 
-		box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24);} }
-
-#menu-primary, #menu-primary .search-form > div, #footer, .audio-shortcode-wrap, .media-shortcode-extend .media-info, .media-info-toggle, .entry-content .media-info-toggle, .media-info-toggle:hover, .media-info-toggle:focus, .wp-audio-shortcode.mejs-container, .mejs-controls, .mejs-volume-button .mejs-volume-slider, .mejs-overlay-play .mejs-overlay-button::after, .mejs-time-rail .mejs-time-float, .wp-playlist-dark {
-	background: #00bcd4; }
-
-#menu-primary li li a, #menu-secondary li li a {
-	color: #78909c; }
-#menu-primary li li a:hover, #menu-primary li li a:focus, #menu-primary li li a:active, #menu-secondary li li a:hover, #menu-secondary li li a:focus, #menu-secondary li li a:active {
-	color: #455a64; }
-
-@media only screen and (min-width: 800px) {
-	.ltr #menu-primary ul ul, .ltr #menu-secondary ul ul, .ltr #menu-primary li:hover > ul, .ltr #menu-primary li:focus > ul, .ltr #menu-primary li.focus > ul, .ltr #menu-secondary li:hover > ul, .ltr #menu-secondary li:focus > ul, .ltr #menu-secondary li.focus > ul {
-		box-shadow: 0 14px 14px 0 rgba(0, 0, 0, 0.25), 0 10px 5px 0 rgba(0, 0, 0, 0.22); } }
-
-.menu li > ul::before {
-	content: none; }
-
-@media only screen and (min-width: 800px) {
-	#menu-primary li li a, #menu-secondary li li a {
-		border: 0; 
-		background: #fff;} }
-
-#menu-primary ul ul li a:hover, #menu-secondary ul ul li a:hover, #menu-primary ul ul li a:focus, #menu-secondary ul ul li a:focus {
-	background: #f5f5f5; }
-
-#menu-primary ul ul {
-	top: 47px; }
-
-.header-image {
-	position: absolute;
-	top: 0; }
-
-#header {
-	position: relative;
-	z-index: 1; }
-
-#main {
-	position: relative; }
-
-#menu-secondary {
-	position: relative; }
-
-#menu-secondary li a {
-	color: #fff; 
-	font-size: 0.875rem;
-	font-weight: 400;
-	letter-spacing: 0.04em;}
-
-#menu-primary {
-	position: relative;
-	z-index: 2; }
-
-@media only screen and (min-width: 800px) {
-	.ltr #menu-primary ul ul ul, .ltr #menu-secondary ul ul ul {
-		left: 232px; }
-	}
-
-/*------------------------------------*\
-    #FOOTER
-\*------------------------------------*/
-#footer a {
-	color: #78909c;
-	font-weight: 500; }
-
-/*------------------------------------*\
-    #TYPOGRAPHY
-\*------------------------------------*/
 /* ====== Primary Font ====== */
-.font-primary, #footer, body, input, textarea, .label-checkbox, .label-radio, .required, #site-description, #reply-title small {
+.font-primary, p, li, body, input, textarea, .label-checkbox, .label-radio, .required, #site-description, #reply-title small {
 	font-family: "RobotoDraft", "Helvetica", "Arial", sans-serif;
 	font-weight: 300; }
 
 /* ====== Secondary Font ====== */
 .font-secondary, dt, th, legend, label, input[type="submit"], input[type="reset"], input[type="button"], button, select, option, .wp-caption-text, .gallery-caption, .mejs-controls, .wp-playlist-item-meta, .entry-byline, .entry-footer, .chat-author cite, .chat-author, .comment-meta, .menu, .breadcrumb-trail, .media-info .prep, .comment-reply-link, .comment-reply-login, .clean-my-archives .day, .whistle-title {
-	font-family: "RobotoDraft", "Helvetica", "Arial", sans-serif;
-	font-weight: 300; }
+	font-family: "RobotoDraft", "Helvetica", "Arial", sans-serif; }
+
+a {
+	font-weight: 400; }
 
 /* ====== Headlines Font ====== */
-.font-headlines, h1, h2, h3, h4, h5, h6 {
+.menu, .font-headlines, h1, h2, h3, h4, h5, h6 {
 	font-family: "RobotoDraft", "Helvetica", "Arial", sans-serif;
-	font-weight: 400; }
-
-/* Thin font weights. */
-#site-description, .main {
 	font-weight: 300; }
+.menu a:hover, .menu a:focus, .menu a:active, .font-headlines a:hover, .font-headlines a:focus, .font-headlines a:active, h1 a:hover, h1 a:focus, h1 a:active, h2 a:hover, h2 a:focus, h2 a:active, h3 a:hover, h3 a:focus, h3 a:active, h4 a:hover, h4 a:focus, h4 a:active, h5 a:hover, h5 a:focus, h5 a:active, h6 a:hover, h6 a:focus, h6 a:active {
+	text-decoration: none; }
 
-#menu-primary li a, #menu-secondary li a {
-	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: 500;
-	letter-spacing: 0.04em;
-	text-transform: capitalize; }
+/**
+ * 2.2 - Color Definitions
+ *
+ * The following are all of the colors defined by the theme.  The only other colors are part of the theme 
+ * customizer options and should not be overwritten.  If needed, copy the specific sections below into 
+ * your child theme and make the necessary changes there.
+ */
+/*
+ * Fun Zone: The colors below are safe to overwrite depending on what you need to do.  Have at it!
+ */
+/* ====== color: #656565 ====== */
+body, .media-shortcode-extend .media-info, .wp-playlist-dark .wp-playlist-item {
+	color: #212121; }
 
-#menu-primary li li a, #menu-secondary li li a {
-	padding-top: 12px;
-	padding-bottom: 12px; 
-	font-size: 13px;
-	font-size: 0.8125rem;
-	font-weight: 400;
-	letter-spacing: 0.04em;}
+/* ====== border-color: #E0E0E0 ====== */
+h1, h2, hr, code, pre, .form-allowed-tags code, fieldset, legend, input, select, textarea, .gallery .gallery-icon a img, .avatar, .display-header-text #header, .entry, .format-chat .chat-author, .media-info li, .wp-playlist-tracks, .wp-playlist-item, .loop-description, .loop-pagination, .loop-nav, #sidebar-subsidiary, li.ping, .comment-content, .clean-my-archives .day-duplicate .day, .whistles-tabs-nav li a, .whistles-tabs .whistles-tabs-nav li a:hover, .whistles-tabs .whistles-tabs-nav li a:focus, .whistles-tabs .whistles-tabs-wrap, .whistles-toggle .whistle-title, .whistles-accordion .whistle-title, .whistles-toggle .whistle-content, .whistles-accordion .whistle-content {
+	border-color: #e0e0e0; }
 
-.menu li > a::after {
-	vertical-align: middle; }
+/* ====== color: #424242 ====== */
+h6, .whistles-tabs .whistles-tabs-nav li[aria-selected="true"] a, .whistles-tabs .whistles-tabs-nav li a:hover, .whistles-tabs .whistles-tabs-nav li a:focus, .whistles-toggle .whistle-title:hover, .whistles-toggle .whistle-title:focus, .whistles-toggle .whistle-title[aria-selected="true"], .whistles-accordion .whistle-title:hover, .whistles-accordion .whistle-title[aria-selected="true"], label:hover, label:focus, label.focus, .loop-pagination .current {
+	color: #424242; }
 
-/* Normal font weights. */
-.widget-title > .wrap, #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, dt, dt.font-secondary {
-	font-weight: 400; }
-
-/* Bold font weights. */
-b, strong, .comment-author {
-	font-weight: 700; }
-
-.entry-byline, .entry-footer, .comment-meta, .wp-playlist-item-meta {
-	color: #9e9e9e;
-	font-style: italic; }
-.entry-byline a, .entry-footer a, .comment-meta a, .wp-playlist-item-meta a {
-	opacity: 0.5; 
-	color: #212121;}
-.entry-byline a:hover, .entry-byline a:focus, .entry-byline a:active, .entry-footer a:hover, .entry-footer a:focus, .entry-footer a:active, .comment-meta a:hover, .comment-meta a:focus, .comment-meta a:active, .wp-playlist-item-meta a:hover, .wp-playlist-item-meta a:focus, .wp-playlist-item-meta a:active {
-	opacity: 1; 
-	color: #212121;
-	text-decoration: none;}
-
-/*------------------------------------*\
-    #BUTTONS
-\*------------------------------------*/
-button, input[type="button"], input[type="reset"], input[type="submit"] {
-	border-radius: 2px;
-	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); 
-	font-weight: 400;
-	text-decoration: none;
-	letter-spacing: 0.04em;
-	text-transform: uppercase;
-	-webkit-transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-	        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);}
-button::-moz-focus-inner, input[type="button"]::-moz-focus-inner, input[type="reset"]::-moz-focus-inner, input[type="submit"]::-moz-focus-inner {
-	border: 0; }
-button:hover, input[type="button"]:hover, input[type="reset"]:hover, input[type="submit"]:hover {
-	background-color: #fbfbfb;
-	box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
-button:focus, button:active, input[type="button"]:focus, input[type="button"]:active, input[type="reset"]:focus, input[type="reset"]:active, input[type="submit"]:focus, input[type="submit"]:active {
-	background-color: #d4d4d4;
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 5px 0 rgba(0, 0, 0, 0.23); }
-
-/*------------------------------------*\
-    #BLOCKQUOTES
-\*------------------------------------*/
-blockquote {
-	padding-bottom: 1px; 
-	border: 0;
-	border-radius: 2px;
-	outline: 0;}
-
-/*------------------------------------*\
-    #BREADCRUMBS
-\*------------------------------------*/
-.breadcrumbs {
-	cursor: default; }
-.breadcrumbs a {
-	color: #757575; 
-	text-decoration: none;}
-.breadcrumbs .sep {
+/* ====== color: #9E9E9E ====== */
+caption, td, label, input, textarea, select, .gallery .gallery-caption, .page-links, .loop-pagination, .loop-nav, .widget_recent_entries .post-date, .widget-entry-views .entry-view-count, .gallery-count, .comment-respond .must-log-in, .comment-respond .logged-in-as, .comments-closed, .comment-notes, .form-allowed-tags, .whistles-tabs-nav li a, .whistles-toggle .whistle-title, .whistles-accordion .whistle-title, .wp-playlist-dark .wp-playlist-item-meta {
 	color: #9e9e9e; }
-.breadcrumbs .trail-end {
-	color: #616161; 
-	font-weight: bold;}
 
-/*------------------------------------*\
-    #SHARED
-\*------------------------------------*/
-html {
-	font-size: 15px; }
+/* ====== background: #212121 ====== */
+#menu-primary, #menu-primary .search-form > div, #footer, .audio-shortcode-wrap, .media-shortcode-extend .media-info, .media-info-toggle, .entry-content .media-info-toggle, .media-info-toggle:hover, .media-info-toggle:focus, .wp-audio-shortcode.mejs-container, .mejs-controls, .mejs-volume-button .mejs-volume-slider, .mejs-overlay-play .mejs-overlay-button::after, .mejs-time-rail .mejs-time-float, .wp-playlist-dark {
+	background: #455a64; }
 
-@media only screen and (min-width: 800px) {
-	html {
-		font-size: 16px; }
+/* ====== background: transparent ====== */
+hr, .mejs-container, .mejs-embed, .mejs-embed body, .mejs-overlay-button, .mejs-controls > .mejs-button button:hover, .mejs-controls > .mejs-button button:focus, #menu-primary .menu-toggle button, #menu-primary .menu-toggle button:hover, #menu-primary .menu-toggle button:focus, #menu-primary .search-toggle, #menu-primary .search-toggle:hover, #menu-primary .search-toggle:focus {
+	background: transparent; }
+
+/* ====== background: #fff ====== */
+html, #container > .wrap, #reply-title small a, .whistles-tabs .whistles-tabs-nav li[aria-selected="true"] a {
+	background: #fff; }
+
+/* ====== Other colors ====== */
+h1 {
+	color: #303030; }
+
+h2 {
+	color: #353535; }
+
+h3 {
+	color: #404040; }
+
+h4 {
+	color: #454545; }
+
+h5 {
+	color: #505050; }
+
+code {
+	color: #000;
+	background: #f6f6f6; }
+
+tr, thead, tfoot, td {
+	border-color: #f5f5f5; }
+
+td {
+	background: #fafafa; }
+
+input[type="number"], input[type="date"], input[type="datetime"], input[type="datetime-local"], input[type="email"], input[type="month"], input[type="password"], input[type="search"], input[type="tel"], input[type="text"], input[type="time"], input[type="url"], input[type="week"], textarea, select {
+	border-color: #e0e0e0; 
+	background: #f5f5f5;}
+
+input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, textarea:focus, select:focus {
+	border-color: #e0e0e0; 
+	color: #424242;
+	background: #eee;}
+
+.wp-caption .wp-caption-text {
+	color: #e0e0e0;
+	background: rgba(0, 0, 0, 0.75); }
+
+.gallery .gallery-icon a img {
+	background: none; }
+
+.gallery-icon a:hover img, .galley-icon a:focus img {
+	background: none; }
+
+#menu-primary {
+	box-shadow: 0 1px 1.5px 0 rgba(0, 0, 0, 0.12), 0 1px 1px 0 rgba(0, 0, 0, 0.24); }
+
+#menu-primary .menu-toggle button {
+	color: rgba(255, 255, 255, 0.75); }
+
+#menu-primary li a, #menu-secondary li li a, #menu-primary .menu-toggle button:hover, #menu-primary .menu-toggle button:focus {
+	color: rgba(255, 255, 255, 0.75); }
+
+@media only screen and (max-width: 799px) {
+	#menu-secondary .wrap, #menu-primary .search-form > div {
+		background: #fff; }
+
+	#menu-primary li a, #menu-secondary li a, #menu-secondary li li a, #menu-secondary .menu-toggle button {
+		border-color: transparent; 
+		color: rgba(0, 0, 0, 0.75);
+		background: #fff;}
+
+	#menu-primary li a:hover, #menu-secondary li a:hover, #menu-primary li a:focus, #menu-secondary li a:focus {
+		color: #000 !important;
+		background: #f5f5f5; }
 	}
 
-/*------------------------------------*\
-    ##Stargazer
-\*------------------------------------*/
-.widget-title > .wrap, #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap {
-	box-sizing: border-box;
-	width: 100%;
-	border-radius: 2px 2px 0 0; 
-	font-size: 24px;
-	font-size: 1.5rem;
-	font-weight: 300;
-	line-height: 1;}
+#site-title a:hover, #site-title a:focus {
+	border-bottom-color: #e0e0e0; }
 
-.widget-title {
-	margin-bottom: 0; }
+.entry-title, .entry-title a {
+	color: #212121; }
 
-.widget-title > .wrap::before {
-	font-size: 24px; }
+.entry-byline, .entry-footer, .comment-meta, .wp-playlist-item-meta {
+	color: rgba(85, 85, 85, 0.75); }
 
-.widget_search > form.search-form {
-	margin: 0;
-	border-radius: 2px;
-	background-color: #fff; }
+.image-sizes .sep {
+	color: #e0e0e0; }
 
-#menu-primary .search-form .search-toggle::before {
-	font-size: 22px; }
+.format-chat .chat-speaker-1 .chat-author, .format-chat .chat-speaker-11 .chat-author {
+	color: #3498db; }
 
-.menu input[type=search] {
-	border: 0;
-	border-bottom: 1px solid; 
-	background: none;}
-.menu input[type=search]:focus {
-	border: 0;
-	border-bottom: 2px solid #3f51b5; 
-	background: none;}
+.format-chat .chat-speaker-2 .chat-author, .format-chat .chat-speaker-12 .chat-author {
+	color: #f1c40f; }
 
-.breadcrumbs {
-	border-radius: 2px; 
-	background-color: #eee;}
+.format-chat .chat-speaker-3 .chat-author, .format-chat .chat-speaker-13 .chat-author {
+	color: #e74c3c; }
+
+.format-chat .chat-speaker-4 .chat-author, .format-chat .chat-speaker-14 .chat-author {
+	color: #2ecc71; }
+
+.format-chat .chat-speaker-5 .chat-author, .format-chat .chat-speaker-15 .chat-author {
+	color: #f39c12; }
+
+.format-chat .chat-speaker-6 .chat-author, .format-chat .chat-speaker-16 .chat-author {
+	color: #9b59b6; }
+
+.format-chat .chat-speaker-7 .chat-author, .format-chat .chat-speaker-17 .chat-author {
+	color: #95a5a6; }
+
+.format-chat .chat-speaker-8 .chat-author, .format-chat .chat-speaker-18 .chat-author {
+	color: #16a085; }
+
+.format-chat .chat-speaker-9 .chat-author, .format-chat .chat-speaker-19 .chat-author {
+	color: #e67e22; }
+
+.format-chat .chat-speaker-10 .chat-author, .format-chat .chat-speaker-20 .chat-author {
+	color: #1abc9c; }
+
+.loop-description {
+	color: #757575;
+	background: #f9f9f9; }
+
+li.ping, .comment-content {
+	background: #f9f9f9; }
+
+#footer a {
+	color: rgba(255, 255, 255, 0.75); }
+
+.clean-my-archives .comments-number {
+	color: #aaa; }
+
+.whistles-tabs-nav li a, .whistles-toggle .whistle-title, .whistles-accordion .whistle-title {
+	background: #f5f5f5; }
+
+.whistles-tabs .whistles-tabs-nav li a:hover, .whistles-tabs .whistles-tabs-nav li a:focus {
+	background: #eee; }
+
+.whistles-tabs .whistles-tabs-nav li[aria-selected="true"] a {
+	border-bottom-color: #fff; }
+
+.media-shortcode-extend .audio-info {
+	border-color: #202020; }
+
+.media-shortcode-extend .media-info li, .wp-playlist-dark .wp-playlist-item {
+	border-color: #353535; }
+
+.wp-video-shortcode .mejs-controls, .wp-playlist-dark .mejs-controls {
+	border-color: #151515; }
+
+.mejs-time-rail .mejs-time-float {
+	border-color: #454545; }
+
+.mejs-time-rail .mejs-time-float-corner {
+	border-top-color: #fff; }
+
+.whistles-toggle .whistle-title:hover, .whistles-toggle .whistle-title:focus, .whistles-toggle .whistle-title[aria-selected="true"], .whistles-accordion .whistle-title:hover, .whistles-accordion .whistle-title:focus, .whistles-accordion .whistle-title[aria-selected="true"] {
+	background: #eee; }
+
+.mejs-time-rail .mejs-time-total, .mejs-horizontal-volume-slider .mejs-horizontal-volume-total, .mejs-volume-button .mejs-volume-slider .mejs-volume-total {
+	background: #454545; }
+
+.mejs-time-rail .mejs-time-current {
+	background: rgba(255, 255, 255, 0.35); }
+
+.mejs-overlay-play .mejs-overlay-button::after {
+	text-shadow: 1px 1px 2px #151515; }
+
+.mejs-button button:focus {
+	outline-color: #424242; }
+
+/* Menu colors */
+@media only screen and (min-width: 800px) {
+	.sub-menu {
+		box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.19), 0 6px 3px 0 rgba(0, 0, 0, 0.23); }
+
+	.sidebar .sub-menu {
+		box-shadow: none; }
+
+	.menu li > ul::before {
+		border-right-color: transparent;
+		border-bottom-color: transparent;
+		border-left-color: transparent; }
+
+	.menu li li > ul::before {
+		border-top-color: transparent;
+		border-bottom-color: transparent; }
+
+	.ltr .menu li li > ul::before {
+		border-right-color: #fff; }
+
+	.rtl .menu li li > ul::before {
+		border-left-color: #fff; }
+
+	#menu-primary li li a, #menu-secondary li li a {
+		border-color: #fff;
+		color: rgba(0, 0, 0, 0.75); 
+		background: #fff;
+		font-size: 0.85rem;}
+
+	#menu-primary ul ul li a:hover, #menu-secondary ul ul li a:hover, #menu-primary ul ul li a:focus, #menu-secondary ul ul li a:focus {
+		color: #000; 
+		background: #f5f5f5;}
+
+	#menu-primary .search-form .search-toggle::before {
+		color: rgba(255, 255, 255, 0.75); }
+
+	#menu-primary .search-toggle:hover::before, #menu-primary .search-toggle:focus::before {
+		color: #fff; }
+	}
+
+#menu-primary li a, #menu-secondary li a {
+	font-size: 1rem; 
+	text-transform: capitalize;}
+
+/* =/=/=/=/=/= End fun zone. =/=/=/=/=/= */
+/*
+ * Colors Danger Zone: The white color is used in contrast to the 'primary' theme color. It's not recommended to 
+ * overwrite this specific color section. If overwriting, it should be a very light color.
+ */
+::-moz-selection {
+	color: #fff;
+	/* Don't combine with other elements. Breaks Firefox. */ }
+::selection {
+	color: #fff;
+	/* Don't combine with other elements. Breaks Firefox. */ }
+
+blockquote, blockquote a:hover, blockquote a:focus, .entry-content blockquote a:hover, .entry-content blockquote a:focus, .wp-calendar td.has-posts a, input[type="submit"], input[type="reset"], input[type="button"], button, #menu-primary .menu-toggle button:hover, #menu-primary .menu-toggle button:focus, #menu-primary li.current-menu-item > a, #menu-primary li a:hover, #menu-primary li a:focus, #menu-secondary li li a:hover, #menu-secondary li li a:focus, #menu-sub-terms li a, .page-links a, .page-links a:hover, .page-links a:focus, .widget-title > .wrap, .widget-title > .wrap a, #comments-number > .wrap, #reply-title > .wrap, .attachment-meta-title > .wrap, .comment-reply-link, .comment-reply-login, .comment-reply-link:hover, .comment-reply-link:focus, .comment-reply-login:hover, .comment-reply-login:focus, .media-shortcode-extend a, .media-shortcode-extend a:hover, .media-shortcode-extend a:focus, .media-info-toggle, .entry-content .media-info-toggle, .mejs-time .mejs-currenttime, .mejs-time .mejs-duration, .mejs-volume-button .mejs-volume-slider .mejs-volume-current, .mejs-volume-button .mejs-volume-slider .mejs-volume-handle, .media-info-toggle:hover, .media-info-toggle:focus, .mejs-overlay-play .mejs-overlay-button::after, .mejs-time-rail .mejs-time-float, .wp-playlist-dark .wp-playlist-playing, .wp-playlist-dark .wp-playlist-caption:hover, .wp-playlist-dark .wp-playlist-caption:focus, .wp-playlist-dark .wp-playlist-item:hover .wp-playlist-dark .wp-playlist-item:focus, .skip-link .screen-reader-text:focus {
+	color: #fff; }
+
+pre, .form-allowed-tags code {
+	background-image: -webkit-gradient(linear, 0 0, 0 100%, color-stop(0.5, rgba(255, 255, 255, 0.5)), color-stop(0.5, transparent), to(transparent));
+	background-image: -webkit-linear-gradient(rgba(255, 255, 255, 0.5) 50%, transparent 50%, transparent);
+	background-image:         linear-gradient(rgba(255, 255, 255, 0.5) 50%, transparent 50%, transparent); }
+
+blockquote {
+	border-color: rgba(255, 255, 255, 0.15); }
+
+blockquote a, .entry-content blockquote a {
+	border-color: rgba(255, 255, 255, 0.25); 
+	color: rgba(255, 255, 255, 0.75);}
+
+blockquote a:hover, blockquote a:focus, .entry-content blockquote a:hover, .entry-content blockquote a:focus {
+	border-color: #fff; }
+
+/* =/=/=/=/=/= End colors danger zone. =/=/=/=/=/= */
+/********************************************************************************************************
+ * This concludes the fun area for making your child theme unique.
+ ********************************************************************************************************/
+h2#site-description.font-primary {
+	opacity: 1;
+	color: #9e9e9e;
+	font-weight: 500;
+	font-style: normal; }
+
+#container > .wrap {
+	background: none; }
+
+.entry-byline {
+	color: #9e9e9e; }
+.entry-byline a {
+	color: #9e9e9e; }
+.entry-byline a:hover {
+	text-decoration: none; }
 
 .gallery .gallery-icon a img {
 	padding: 0;
 	border: 0;
-	border-radius: 2px; }
+	border-radius: 2px; 
+	background: 0 0;}
 
-.format-aside {
-	color: #fff;
-	background-color: #00bcd4;
-	font-weight: 400; }
-.format-aside a {
-	color: #fff; }
-
-.format-quote {
-	background-color: rgba(255, 255, 255, 0.5);
-	box-shadow: none; }
-
-#footer, article.sticky {
-	color: #fff;
-	background-color: #3f51b5;
-	font-weight: 400; }
-#footer a, article.sticky a {
-	color: #fff; }
-#footer .entry-byline, #footer .entry-footer, #footer .comment-meta, #footer .wp-playlist-item-meta, article.sticky .entry-byline, article.sticky .entry-footer, article.sticky .comment-meta, article.sticky .wp-playlist-item-meta {
-	color: #bdbdbd; }
-#footer .entry-byline a, #footer .entry-footer a, #footer .comment-meta a, #footer .wp-playlist-item-meta a, article.sticky .entry-byline a, article.sticky .entry-footer a, article.sticky .comment-meta a, article.sticky .wp-playlist-item-meta a {
-	color: #fafafa; }
-
-.widget-title, #comments-number, #reply-title, .attachment-meta-title {
+#site-title a:hover, #site-title a:focus {
 	border-bottom: 0; }
 
-h1, h2, hr, code, pre, .form-allowed-tags code, fieldset, legend, input, select, textarea, .gallery .gallery-icon a img, .avatar, .display-header-text #header, .entry, .format-chat .chat-author, .media-info li, .wp-playlist-tracks, .wp-playlist-item, .loop-description, .loop-pagination, .loop-nav, #sidebar-subsidiary, li.ping, .comment-content, .clean-my-archives .day-duplicate .day, .whistles-tabs-nav li a, .whistles-tabs .whistles-tabs-nav li a:hover, .whistles-tabs .whistles-tabs-nav li a:focus, .whistles-tabs .whistles-tabs-wrap, .whistles-toggle .whistle-title, .whistles-accordion .whistle-title, .whistles-toggle .whistle-content, .whistles-accordion .whistle-content {
-	border-color: #eee; }
+.widget-title > .wrap {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 1rem 1rem 0.925rem;
+	border-radius: 2px 2px 0 0; 
+	font-size: 1.3rem;
+	font-weight: 300;
+	text-transform: capitalize;}
+
+.custom-background #sidebar-subsidiary {
+	padding-right: 0;
+	padding-left: 0;
+	border-top: 0; }
+.custom-background #sidebar-subsidiary .widget {
+	margin-bottom: 1.5rem;
+	border-radius: 2px; 
+	background-color: #fff;}
+
+.widget > * {
+	padding: 1.5rem; }
+.widget .widget-title {
+	padding: 0; 
+	border-bottom: 0;}
+
+.main {
+	border: 0; 
+	border-radius: 0 0 2px 2px;
+	background: white;}
+
+#header {
+	border-radius: 2px 2px 0 0; }
+
+.main, #header {
+	background-color: #fff; }
+
+#footer {
+	color: rgba(255, 255, 255, 0.75); }
+#footer a {
+	font-weight: 500; }
