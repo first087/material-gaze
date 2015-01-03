@@ -90,7 +90,7 @@ $animation-curve-default: $animation-curve-fast-out-slow-in;
   transition-timing-function: $animation-curve-fast-out-linear-in;
 }
 
-@mixin material-animation-default($duration:0.2s) {
+@mixin material-animation-default($duration:0.5s) {
   transition-duration: $duration;
   transition-timing-function: $animation-curve-default;
 }
