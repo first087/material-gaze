@@ -37,7 +37,7 @@ function material_gaze_theme_setup() {
 	add_theme_support( 
 		'custom-header', 
 		array(
-			'default-text-color' => '212121',
+			'default-text-color' => 'ffffff',
 			'default-image'      => '%2$s/images/headers/blue.jpg',
 			'random-default'     => false,
 		)
@@ -113,7 +113,7 @@ function material_gaze_default_backgrounds( $backgrounds ) {
  * @return string
  */
 function material_gaze_color_primary( $hex ) {
-	return $hex ? $hex : '00bcd4';
+	return $hex ? $hex : '03A9F4';
 }
 
 
@@ -129,7 +129,7 @@ function material_gaze_wp_head() {
 	$style = '';
 	$hex = get_theme_mod( 'color_primary', '' );
 
-	$style .= "#menu-primary .search-form .search-toggle { background: #{$hex}; } ";
+	$style .= ".head-wrap, .footer-wrap, #menu-primary .search-form .search-toggle { background: #{$hex}; } ";
 
 	echo "\n" . '<style type="text/css">' . trim( $style ) . '</style>' . "\n";
 }
