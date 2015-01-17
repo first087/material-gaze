@@ -40,6 +40,7 @@ function material_gaze_theme_setup() {
 			'default-text-color' => 'ffffff',
 			'default-image'      => '%2$s/images/headers/blue.jpg',
 			'random-default'     => false,
+			'wp-head-callback'   => 'mg_custom_header_wp_head',
 		)
 	);
 
@@ -65,7 +66,7 @@ function material_gaze_theme_setup() {
 		)
 	);
 	/* Custom editor stylesheet. */
-	add_editor_style( '//fonts.googleapis.com/css?family=RobotoDraft' );
+	add_editor_style( '//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700|Roboto+Condensed:400,300,700' );
 
 
 	/* Filter to add custom default backgrounds (supported by the framework). */
@@ -113,12 +114,12 @@ function material_gaze_default_backgrounds( $backgrounds ) {
  * @return string
  */
 function material_gaze_color_primary( $hex ) {
-	return $hex ? $hex : '03A9F4';
+	return $hex ? $hex : '2196F3';
 }
 
 
 function material_gaze_enqueue_styles() {
-	wp_enqueue_style( 'material-gaze-fonts', '//fonts.googleapis.com/css?family=Roboto:100,300,400,500,400italic,700italic' );
+	wp_enqueue_style( 'material-gaze-fonts', '//fonts.googleapis.com/css?family=Roboto:400,300,300italic,400italic,500,700|Roboto+Condensed:400,300,700' );
 }
 
 
@@ -129,7 +130,27 @@ function material_gaze_wp_head() {
 	$style = '';
 	$hex = get_theme_mod( 'color_primary', '' );
 
-	$style .= ".head-wrap, .footer-wrap, #menu-primary .search-form .search-toggle { background: #{$hex}; } ";
+	$style .= "#menu-primary .search-form .search-toggle, .display-header-text #header { background: #{$hex}; } ";
 
 	echo "\n" . '<style type="text/css">' . trim( $style ) . '</style>' . "\n";
 }
+
+function mg_custom_header_wp_head() {
+	if ( !display_header_text() )
+		return;
+	$hex = get_header_textcolor();
+	if ( empty( $hex ) )
+		return;
+	$style = "body.custom-header #branding, #site-title { color: #{$hex}; }";
+	echo "\n" . '<style type="text/css" id="custom-header-css">' . trim( $style ) . '</style>' . "\n";
+}
+
+
+
+/**
+ * Binds JS handlers to make Theme Customizer preview reload changes asynchronously.
+ */
+function mg_customize_preview_js() {
+	wp_enqueue_script( 'mg_customizer', trailingslashit( CHILD_THEME_URI ) .  'js/customizer.js', array( 'customize-preview' ), '20130508', true );
+}
+add_action( 'customize_preview_init', 'mg_customize_preview_js' );

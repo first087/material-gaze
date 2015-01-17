@@ -444,9 +444,11 @@ border: 0;
 }
 
 
-#menu-primary {
-background: rgba(0, 0, 0, 0.15);
-}
+// #menu-primary {
+// background: rgba(0, 0, 0, 0.15);
+// position: relative;
+// z-index: 1;
+// }
 
 .widget_search>.search-form {
     border-radius: 2px;
@@ -516,4 +518,11 @@ padding: 1.5rem;
 background: none;
 border-bottom: 1px solid #eee;
 color: #212121;
+}
+
+
+
+
+.display-header-text #header {
+background-color: blue;
 }

@@ -1,0 +1,381 @@
+/**
+ * 2.1 - Font Family Definitions
+ *
+ * This theme operates with three dinstinct font rules.  The "primary" font is used for the majority of 
+ * text throughout the theme.  The "secondary" font is used for handling secondary use cases.  The 
+ * "headlines" font is specific to h1-h6 headers (with the exception of #site-description).
+ *
+ * If building a child theme for public release with custom fonts, the child theme should define only the 
+ * font rules it needs.  Copy the specific section below that you want to overwrite into the child theme. 
+ * Make sure to include the `.font-*` class as this will maintain forward compatibility with future 
+ * changes in the parent theme.
+ */
+
+/* ====== Primary Font ====== */
+
+.font-primary,
+.menu.font-secondary,
+body,
+input,
+textarea,
+.label-checkbox,
+.label-radio,
+.required,
+#reply-title small { 
+	font-family: 'Roboto', sans-serif;
+}
+
+/* ====== Secondary Font ====== */
+
+.font-secondary,
+#site-description,
+dt,
+th,
+legend,
+label,
+input[type="submit"],
+input[type="reset"], 
+input[type="button"],
+button,
+select,
+option,
+.wp-caption-text,
+.gallery-caption,
+.mejs-controls,
+.wp-playlist-item-meta,
+.entry-byline,
+.entry-footer,
+.chat-author cite,
+.chat-author,
+.comment-meta,
+.breadcrumb-trail,
+.media-info .prep,
+.comment-reply-link,
+.comment-reply-login,
+.clean-my-archives .day,
+.whistle-title {
+	font-family: 'Roboto Condensed', sans-serif;
+}
+
+/* ====== Headlines Font ====== */
+
+#site-title,
+.font-headlines,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 300;
+    a:hover, a:focus, a:active {
+    text-decoration: none;
+    border-bottom: 0;
+}
+}
+
+#menu-secondary .menu-toggle button, a, a:hover {
+	text-decoration: none;
+}
+
+a.more-link {
+	border-bottom: 0;
+}
+
+a {
+transition: all 0.2s ease-in-out;
+}
+
+/* ====== color: #424242 ====== */
+
+body,
+.media-shortcode-extend .media-info,
+.wp-playlist-dark .wp-playlist-item {
+	color: #424242;
+border: 0;
+}
+
+#menu-primary {
+padding: 12px 0 0;
+}
+
+/* ====== background: #455A64 ====== */
+
+#menu-primary,
+#menu-primary .search-form > div,
+#footer,
+.audio-shortcode-wrap,
+.media-shortcode-extend .media-info,
+.media-info-toggle,
+.entry-content .media-info-toggle,
+.media-info-toggle:hover,
+.media-info-toggle:focus,
+.wp-audio-shortcode.mejs-container,
+.mejs-controls,
+.mejs-volume-button .mejs-volume-slider,
+.mejs-overlay-play .mejs-overlay-button::after,
+.mejs-time-rail .mejs-time-float,
+.wp-playlist-dark {
+	background: #455A64;
+}
+
+body.custom-colors {
+border-top-color: #455A64;
+border-bottom-color: #455A64;
+}
+
+.gallery .gallery-icon a img { 
+padding: 0;
+border: 0;
+border-radius: 2px;
+background: none;
+}
+
+#menu-primary .menu-toggle button { color: rgba( 255, 255, 255, 0.75 ); }
+
+#menu-primary li a,
+#menu-secondary li a,
+#menu-primary .menu-toggle button:hover,
+#menu-primary .menu-toggle button:focus { 
+	color: rgba( 255, 255, 255, 0.75 );
+	text-decoration: none;
+}
+
+		#menu-primary   li li a,
+		#menu-secondary li li a {
+			color: rgba( #212121, 0.75 );
+			background:   #fff;
+			border-color: #fff;
+		}
+
+        #menu-primary   li a,
+        #menu-secondary li a,
+        #menu-primary   li li a,
+		#menu-secondary li li a {
+                text-transform: capitalize;
+                font-weight: 500;
+                font-size: .9rem;            }
+
+.sub-menu {
+	background: #fff;
+	padding: 3px 0;
+	border-radius: 2px;
+}
+
+@media only screen and (max-width: 799px) {
+
+		#menu-primary li.current-menu-item > a {
+		color: #424242;
+	}
+
+	.menu-toggle button {
+	box-shadow: none;
+	&:hover, &:focus {
+		box-shadow: none;
+	}
+}
+
+#menu-secondary .menu-toggle button {
+	font-size: 0;
+	padding: .5rem 0.75rem .5rem 0;
+	color:        rgba( #212121, 0.75 );
+    background:   rgba( #fff, 0.5 );
+    border-color: transparent;
+    border-radius: 2px solid;
+
+    &:hover, &:focus, &:active {
+    	background: #fff;
+    }
+}
+
+	.wrap .menu-items {
+    @include shadow-z3();
+}
+
+	#menu-secondary .wrap,
+	#menu-primary .search-form > div { background: #1f1f1f; }
+
+	#menu-primary li a,
+	#menu-secondary li a,
+	#menu-primary li li a,
+	#menu-secondary li li a, {
+        color:        rgba( #212121, 0.75 );
+        background:   #fff;
+        border-color: transparent;
+	}
+
+	#menu-primary li a:hover,
+	#menu-secondary li a:hover,
+	#menu-primary li a:focus,
+	#menu-secondary li a:focus,
+	#menu-primary li li a:hover,
+	#menu-secondary li li a:hover,
+	#menu-primary li li a:focus,
+	#menu-secondary li li a:focus {
+		color: #212121;
+        background: #E0E0E0;
+	}
+}
+
+.entry-title,
+.entry-title a { color: #455A64; }
+
+.entry-byline,
+.entry-footer,
+.comment-meta,
+.wp-playlist-item-meta { color: rgba( 85, 85, 85, 0.75 ); }
+
+.image-sizes .sep { color: #e3e3e3; }
+
+li.ping,
+.comment-content,
+.loop-description {
+	color:      #212121;
+	background: #E0E0E0;
+	border-color: #E0E0E0;
+	border-radius: 2px;
+}
+
+			label:focus,
+			label.focus { text-decoration: none; }
+
+			blockquote {
+border-color: transparent;
+outline: 0;
+border-radius: 2px;
+			}
+
+	/* Menu colors */
+
+
+
+	@media only screen and (min-width: 800px) {
+
+		        .sub-menu {
+            @include shadow-z3();
+        }
+
+        .sidebar .sub-menu {
+            box-shadow: none;
+        }
+
+		.menu li > ul::before {
+			border-right-color:  transparent;
+			border-bottom-color: #fff;
+			border-left-color:   transparent;
+		}
+
+		.menu li li > ul::before {
+			border-top-color:    transparent;
+			border-bottom-color: transparent;
+		}
+
+		.ltr .menu li li > ul::before { border-right-color: #fff; }
+		.rtl .menu li li > ul::before { border-left-color:  #fff; }
+
+
+		#menu-primary   ul ul li a:hover,
+		#menu-secondary ul ul li a:hover,
+		#menu-primary   ul ul li a:focus,
+		#menu-secondary ul ul li a:focus { 
+			color: #212121;
+			background: #E0E0E0; 
+		}
+
+		#menu-primary .search-form .search-toggle::before {
+			color: rgba( 255, 255, 255, 0.75 );
+		}
+
+		#menu-primary .search-toggle:hover::before,
+		#menu-primary .search-toggle:focus::before { color: #fff; }
+}
+
+
+
+#container > .wrap {
+    border-radius: 2px;
+    @include shadow-z1();
+}
+
+
+.display-header-text #header {
+border: 0;
+@include shadow-z1();
+border-radius: 2px 2px 0 0;
+}
+
+#site-title a,
+h2#site-description.font-primary {
+color: inherit;
+font-style: normal;
+}
+
+.widget_search>.search-form {
+    border-radius: 2px;
+}
+
+.widget-title, form label {
+cursor: default;
+}
+
+.attachment-meta-title > .wrap,
+#comments-number > .wrap, 
+#reply-title > .wrap, 
+.widget-title>.wrap {
+width: 100%;
+box-sizing: border-box;
+text-transform: capitalize;
+font-weight: 300;
+font-size: 1.3rem;
+padding: 1rem 1rem .925rem;
+border-radius: 2px 2px 0 0;
+}
+
+#menu-primary .search-form .search-toggle {
+position: relative;
+width: 45px;
+height: 45px;
+margin-top: -5px;
+margin-right: -6px;
+border-radius: 50%;
+
+&:before {
+font-size: 1.3rem;
+color: #fff;
+}
+}
+
+
+#menu-primary .search-form .search-toggle, input[type='submit'], input[type='reset'], input[type='button'], button, .page-links a, .comment-reply-link, .comment-reply-login, .wp-calendar td.has-posts a, #menu-sub-terms li a {
+@include shadow-z1();
+&:hover, &:focus {
+    @include shadow-z3();
+    text-decoration: none;
+}
+}
+
+.comment-reply-link, .comment-reply-login {
+    border-radius : 0 0 2px 2px;
+}
+
+
+
+#footer {
+color: rgba(255,255,255,.75);
+a {
+font-weight: 700;
+}
+}
+
+
+.ltr .widget-title>.wrap::before {
+padding-right: 10px;
+font-size: 1.5rem;
+line-height: 0.8;
+}
+
+.rtl .widget-title > .wrap::before {
+	padding-left: 10px;
+	font-size: 1.5rem;
+	line-height: 0.8; }
