@@ -179,13 +179,27 @@ background: none;
 #menu-secondary .menu-toggle button {
 	font-size: 0;
 	padding: .5rem 0.75rem .5rem 0;
-	color:        rgba( #212121, 0.75 );
+	color:        rgba( #fff, 0.0 );
     background:   rgba( #fff, 0.5 );
     border-color: transparent;
-    border-radius: 2px solid;
+    border-radius: 2px;
 
-    &:hover, &:focus, &:active {
-    	background: #fff;
+	&:hover {
+	  background-color: rgba( #fff, 0.7 );
+	}
+
+	&:focus {
+	  background-color: rgba( #fff, 0.8 );
+	  outline: 0;
+	}
+
+	&.active {
+	  background-color: rgba( #fff, 0.9 );
+	  border-radius: 2px 2px 0 0;
+	}
+
+    &:after {
+    	color: rgba( #212121, 0.75 )!important;
     }
 }
 
@@ -214,7 +228,7 @@ background: none;
 	#menu-primary li li a:focus,
 	#menu-secondary li li a:focus {
 		color: #212121;
-        background: #E0E0E0;
+        background: #eeeeee;
 	}
 }
 
@@ -231,19 +245,21 @@ background: none;
 li.ping,
 .comment-content,
 .loop-description {
-	color:      #212121;
-	background: #E0E0E0;
-	border-color: #E0E0E0;
+	//color:      #212121;
+	background: #fafafa;
+	border-color: #fafafa;
 	border-radius: 2px;
+	@include shadow-z1();
 }
 
 			label:focus,
 			label.focus { text-decoration: none; }
 
 			blockquote {
-border-color: transparent;
-outline: 0;
-border-radius: 2px;
+				border-color: transparent;
+				outline: 0;
+				border-radius: 2px;
+				@include shadow-z2();
 			}
 
 	/* Menu colors */
@@ -280,7 +296,7 @@ border-radius: 2px;
 		#menu-primary   ul ul li a:focus,
 		#menu-secondary ul ul li a:focus { 
 			color: #212121;
-			background: #E0E0E0; 
+			background: #eeeeee; 
 		}
 
 		#menu-primary .search-form .search-toggle::before {
@@ -319,6 +335,14 @@ font-style: normal;
 cursor: default;
 }
 
+.widget-title, #comments-number, #reply-title, .attachment-meta-title {
+	border: 0;
+	@include shadow-z1;
+	margin-left: -.75rem;
+	margin-right: -.75rem;
+	border-radius: 2px;
+}
+
 .attachment-meta-title > .wrap,
 #comments-number > .wrap, 
 #reply-title > .wrap, 
@@ -329,7 +353,7 @@ text-transform: capitalize;
 font-weight: 300;
 font-size: 1.3rem;
 padding: 1rem 1rem .925rem;
-border-radius: 2px 2px 0 0;
+border-radius: 2px;
 }
 
 #menu-primary .search-form .search-toggle {
@@ -379,3 +403,49 @@ line-height: 0.8;
 	padding-left: 10px;
 	font-size: 1.5rem;
 	line-height: 0.8; }
+
+
+
+input[type="submit"], input[type="reset"], input[type="button"], button {
+  font-weight: 400;
+  text-transform: uppercase;
+  border-radius: 2px;
+  letter-spacing: 0.04em;
+}
+
+input[type="number"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="email"],
+input[type="month"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="text"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+textarea,
+select {
+	background: #fafafa;
+	border-bottom-color: #616161;
+	border-top: 0;
+	border-left: 0;
+	border-right: 0;
+	border-radius: 2px 2px 0 0;
+}
+
+input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, input[type="password"]:focus, input[type="search"]:focus, input[type="tel"]:focus, input[type="text"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus,
+textarea:focus, select:focus { 
+	background: #fafafa;
+}
+
+textarea {
+    resize: vertical;
+}
+
+
+.mejs-controls button {
+	box-shadow: none;
+}
